@@ -1,7 +1,7 @@
 import "./Tag.css";
 
-function Tag() {
-  return <li className="card__tag-list-item">#tag1</li>;
+function Tag({ content }) {
+  return <li className="card__tag-list-item">{content}</li>;
 }
 
 export default Tag;

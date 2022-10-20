@@ -2,12 +2,10 @@ import "./TagList.css";
 
 import Tag from "../Tag";
 
-function TagList() {
+function TagList({ content }) {
   return (
     <ul className="card__tag-list">
-      <Tag />
-      <Tag />
-      <Tag />
+      <Tag content={content} />
     </ul>
   );
 }

@@ -1,7 +1,7 @@
 import "./Answer.css";
 
-function Answer() {
-  return <p className="card__answer">Answer</p>;
+function Answer({ content }) {
+  return <p className="card__answer">{content}</p>;
 }
 
 export default Answer;

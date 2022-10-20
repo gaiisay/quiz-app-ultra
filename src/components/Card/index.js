@@ -5,14 +5,14 @@ import Answer from "../Answer";
 import TagList from "../TagList";
 import Bookmark from "../Bookmark";
 
-function Card() {
+function Card({ question, answer, tag }) {
   return (
     <li className="card-list__item">
       <article className="card">
-        <Question />
+        <Question content={question} />
         <Button />
-        <Answer />
-        <TagList />
+        <Answer content={answer} />
+        <TagList content={tag} />
         <Bookmark />
       </article>
     </li>

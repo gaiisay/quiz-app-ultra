@@ -1,7 +1,7 @@
 import "./Question.css";
 
-function Question() {
-  return <h2 className="card__question">Question</h2>;
+function Question({ content }) {
+  return <h2 className="card__question">{content}</h2>;
 }
 
 export default Question;
