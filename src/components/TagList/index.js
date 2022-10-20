@@ -1,11 +1,13 @@
-//import "./Card.css";
+import "./TagList.css";
+
+import Tag from "../Tag";
 
 function TagList() {
   return (
     <ul className="card__tag-list">
-      <li className="card__tag-list-item">#tag2</li>
-      <li className="card__tag-list-item">#tag1</li>
-      <li className="card__tag-list-item">#tag3</li>
+      <Tag />
+      <Tag />
+      <Tag />
     </ul>
   );
 }

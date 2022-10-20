@@ -1,23 +1,19 @@
 import Card from "./components/Card";
-import NavItem from "./components/NavItem";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <Header content="Quiz-App" />
       <main>
         <ul className="card-list">
           <Card />
           <Card />
+          <Card />
         </ul>
       </main>
-      <nav className="navigation">
-        <ul className="navigation-list">
-          <NavItem />
-          <NavItem />
-          <NavItem />
-        </ul>
-      </nav>
+      <NavBar />
     </div>
   );
 }

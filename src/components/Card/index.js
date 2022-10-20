@@ -7,13 +7,15 @@ import Bookmark from "../Bookmark";
 
 function Card() {
   return (
-    <article className="card">
-      <Question />
-      <Button />
-      <Answer />
-      <TagList />
-      <Bookmark />
-    </article>
+    <li className="card-list__item">
+      <article className="card">
+        <Question />
+        <Button />
+        <Answer />
+        <TagList />
+        <Bookmark />
+      </article>
+    </li>
   );
 }
 
