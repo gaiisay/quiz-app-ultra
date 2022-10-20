@@ -1,13 +1,13 @@
 import "./NavItem.css";
 
-function NavItem({ children, active }) {
+function NavItem({ children, name, active, onClick }) {
   return (
     <li
       className={
-        active ? "navigation__list-item navigation__list-item--active" : "navigation__list-item"
+        "navigation__list-item" + (name === active ? " navigation__list-item--active" : "")
       }
     >
-      <a className="navigation__link" href="/index.html" aria-label="go to home page">
+      <a className="navigation__link" href="#test" aria-label="go to home page" onClick={onClick}>
         {children}
       </a>
     </li>
