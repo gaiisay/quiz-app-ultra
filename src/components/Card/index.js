@@ -6,16 +6,16 @@ import TagList from "../TagList";
 import Bookmark from "../Bookmark";
 import { useState } from "react";
 
-function Card({ question, answer, tag }) {
+function Card({ cardDetails }) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   return (
     <li className="card-list__item">
       <article className="card">
-        <Question content={question} />
+        <Question content={cardDetails.question} />
         <Button onClick={() => (showAnswer ? setShowAnswer(false) : setShowAnswer(true))} />
-        <Answer content={answer} showAnswer={showAnswer} />
-        <TagList content={tag} />
+        <Answer content={cardDetails.answer} showAnswer={showAnswer} />
+        <TagList tags={cardDetails.tags} />
         <Bookmark />
       </article>
     </li>
