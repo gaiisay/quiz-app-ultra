@@ -15,7 +15,7 @@ function App() {
       <Header content="Quiz-App" />
       <main>
         {page === "home" && <Cards cards={cards} />}
-        {page === "bookmarks" && <Bookmarks />}
+        {page === "bookmarks" && <Bookmarks cards={cards} />}
         {page === "create" && <Create />}
         {page === "profile" && <Profile />}
       </main>
