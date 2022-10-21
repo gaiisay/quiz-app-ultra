@@ -16,7 +16,7 @@ function Card({ cardDetails }) {
         <Button onClick={() => (showAnswer ? setShowAnswer(false) : setShowAnswer(true))} />
         <Answer content={cardDetails.answer} showAnswer={showAnswer} />
         <TagList tags={cardDetails.tags} />
-        <Bookmark />
+        <Bookmark isBookmarked={cardDetails.isBookmarked} />
       </article>
     </li>
   );
