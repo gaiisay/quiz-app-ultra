@@ -1,6 +1,7 @@
-import Card from "./components/Card";
+import { useState } from "react";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import Cards from "./pages/Cards";
 
 const cards = [
   {
@@ -26,17 +27,13 @@ const cards = [
 ];
 
 function App() {
+  const [page, setPage] = useState("home");
+
   return (
     <div className="App">
       <Header content="Quiz-App" />
-      <main>
-        <ul className="card-list">
-          {cards.map((card) => {
-            return <Card key={card.id} cardDetails={card} />;
-          })}
-        </ul>
-      </main>
-      <NavBar />
+      <main>{page === "home" && <Cards cards={cards} />}</main>
+      <NavBar currentPage={page} navigateTo={setPage} />
     </div>
   );
 }
