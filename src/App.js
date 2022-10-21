@@ -1,34 +1,25 @@
-import Card from "./components/Card";
+import { useState } from "react";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import Bookmarks from "./pages/Bookmarks";
+import Cards from "./pages/Cards";
+import Create from "./pages/Create";
+import Profile from "./pages/Profile";
+import { cards } from "./db";
 
 function App() {
+  const [page, setPage] = useState("home");
+
   return (
     <div className="App">
       <Header content="Quiz-App" />
       <main>
-        <ul className="card-list">
-          <Card
-            question='Which former US president was nicknamed "Teddy" after he
-              refused to shoot a defenseless black bear?'
-            answer="Theodore Roosevelt"
-            tag="#teddybear"
-          />
-          <Card
-            question="Daniel Radcliffe became a global star in the film industry due to
-              his performance in which film franchise?"
-            answer="Harry Potter"
-            tag="#danielradcliffe"
-          />
-          <Card
-            question="In the Kingdom Heart series who provides the english voice for
-              Master Eraqus?"
-            answer="Mark Hamill"
-            tag="#kingdomheart"
-          />
-        </ul>
+        {page === "home" && <Cards cards={cards} />}
+        {page === "bookmarks" && <Bookmarks cards={cards} />}
+        {page === "create" && <Create />}
+        {page === "profile" && <Profile />}
       </main>
-      <NavBar />
+      <NavBar currentPage={page} navigateTo={setPage} />
     </div>
   );
 }

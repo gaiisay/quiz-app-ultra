@@ -4,16 +4,19 @@ import Question from "../Question";
 import Answer from "../Answer";
 import TagList from "../TagList";
 import Bookmark from "../Bookmark";
+import { useState } from "react";
 
-function Card({ question, answer, tag }) {
+function Card({ cardDetails }) {
+  const [showAnswer, setShowAnswer] = useState(false);
+
   return (
     <li className="card-list__item">
       <article className="card">
-        <Question content={question} />
-        <Button />
-        <Answer content={answer} />
-        <TagList content={tag} />
-        <Bookmark />
+        <Question content={cardDetails.question} />
+        <Button onClick={() => (showAnswer ? setShowAnswer(false) : setShowAnswer(true))} />
+        <Answer content={cardDetails.answer} showAnswer={showAnswer} />
+        <TagList tags={cardDetails.tags} />
+        <Bookmark isBookmarked={cardDetails.isBookmarked} />
       </article>
     </li>
   );
