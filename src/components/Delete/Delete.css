@@ -1,0 +1,25 @@
+.card__button-delete {
+  position: absolute;
+  left: 1rem;
+  top: -1.5rem;
+}
+
+.delete {
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--secondary-light);
+  color: var(--white);
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.delete__icon {
+  fill: var(--white);
+  stroke: var(--secondary);
+  stroke-width: 1.4;
+  width: 2em;
+}

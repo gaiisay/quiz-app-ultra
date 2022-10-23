@@ -1,10 +1,10 @@
-const cards = [
+const cardList = [
   {
     id: 1,
     question: 'Which former US president was nicknamed "Teddy" after he refused to shoot a defenseless black bear?',
     answer: "Theodore Roosevelt",
     tags: ["#usa", "#president", "#teddybear"],
-    isBookmarked: true,
+    isBookmarked: false,
   },
   {
     id: 2,
@@ -23,4 +23,4 @@ const cards = [
   },
 ];
 
-export { cards };
+export { cardList };
