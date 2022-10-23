@@ -5,8 +5,9 @@ import Answer from "../Answer";
 import TagList from "../TagList";
 import Bookmark from "../Bookmark";
 import { useState } from "react";
+import Delete from "../Delete";
 
-function Card({ cardDetails }) {
+function Card({ cardDetails, deleteCard, toggleBookmark }) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   return (
@@ -16,7 +17,8 @@ function Card({ cardDetails }) {
         <Button onClick={() => (showAnswer ? setShowAnswer(false) : setShowAnswer(true))} />
         <Answer content={cardDetails.answer} showAnswer={showAnswer} />
         <TagList tags={cardDetails.tags} />
-        <Bookmark isBookmarked={cardDetails.isBookmarked} />
+        <Bookmark isBookmarked={cardDetails.isBookmarked} toggleBookmark={toggleBookmark} cardId={cardDetails.id} />
+        <Delete cardId={cardDetails.id} deleteCard={deleteCard} />
       </article>
     </li>
   );

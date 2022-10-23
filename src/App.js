@@ -5,18 +5,55 @@ import Bookmarks from "./pages/Bookmarks";
 import Cards from "./pages/Cards";
 import Create from "./pages/Create";
 import Profile from "./pages/Profile";
-import { cards } from "./db";
+import { cardList } from "./db";
 
 function App() {
   const [page, setPage] = useState("home");
+  const [cards, setCards] = useState(cardList);
+
+  function appendCard(question, answer, tag) {
+    setCards((oldCards) => {
+      const newCards = [
+        ...oldCards,
+        {
+          id: oldCards[oldCards.length - 1].id + 1,
+          question: question,
+          answer: answer,
+          tags: [...tag],
+          isBookmarked: false,
+        },
+      ];
+      return newCards;
+    });
+  }
+
+  function deleteCard(cardId) {
+    setCards((oldCards) => {
+      const newCards = oldCards.filter((card) => card.id !== cardId);
+      return newCards;
+    });
+  }
+
+  function toggleBookmark(cardId) {
+    setCards((oldCards) => {
+      const newCards = oldCards.map((card) => {
+        if (card.id === cardId && card.isBookmarked === true) {
+          return { ...card, isBookmarked: false };
+        } else if (card.id === cardId && card.isBookmarked === false) {
+          return { ...card, isBookmarked: true };
+        } else return card;
+      });
+      return newCards;
+    });
+  }
 
   return (
     <div className="App">
       <Header content="Quiz-App" />
       <main>
-        {page === "home" && <Cards cards={cards} />}
-        {page === "bookmarks" && <Bookmarks cards={cards} />}
-        {page === "create" && <Create />}
+        {page === "home" && <Cards cards={cards} deleteCard={deleteCard} toggleBookmark={toggleBookmark} />}
+        {page === "bookmarks" && <Bookmarks cards={cards} toggleBookmark={toggleBookmark} />}
+        {page === "create" && <Create createQuestion={appendCard} setPage={setPage} />}
         {page === "profile" && <Profile />}
       </main>
       <NavBar currentPage={page} navigateTo={setPage} />

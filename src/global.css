@@ -79,6 +79,15 @@ img {
   margin: 0 auto;
 }
 
-.card-list__item {
-  margin: 0 0 4rem;
+.form {
+  margin: 9em 5em;
+  display: grid;
+  gap: 10px;
+}
+
+.form__button {
+  margin: 2em;
+  width: 50%;
+  height: 2rem;
+  justify-self: center;
 }
