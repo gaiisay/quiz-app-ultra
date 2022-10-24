@@ -17,17 +17,17 @@ function Create({ createQuestion, setPage }) {
           setPage("home");
         }}
       >
-        <label for="input-question">Your question:</label>
-        <textarea name="question" id="input-question" cols="60" rows="10" maxlength="200"></textarea>
+        <label htmlFor="input-question">Your question:</label>
+        <textarea name="question" id="input-question" cols="60" rows="10" maxLength="200"></textarea>
         <small className="form__character-count">
           (<span data-js="amountLeft-question">200</span> characters left)
         </small>
-        <label for="input-answer">Your answer:</label>
-        <textarea name="answer" id="input-answer" cols="60" rows="10" maxlength="200"></textarea>
+        <label htmlFor="input-answer">Your answer:</label>
+        <textarea name="answer" id="input-answer" cols="60" rows="10" maxLength="200"></textarea>
         <small className="form__character-count">
           (<span data-js="amountLeft-answer">200</span> characters left)
         </small>
-        <label for="input-tag">Tag:</label>
+        <label htmlFor="input-tag">Tag:</label>
         <input type="text" name="tag" id="input-tag" />
         <button className="form__button" type="submit">
           Create new questions
