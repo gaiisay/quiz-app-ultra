@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Bookmarks from "./pages/Bookmarks";
@@ -9,7 +9,13 @@ import { cardList } from "./db";
 
 function App() {
   const [page, setPage] = useState("home");
-  const [cards, setCards] = useState(cardList);
+  const [cards, setCards] = useState(() => {
+    return JSON.parse(localStorage.getItem("yourCards")) ?? cardList;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("yourCards", JSON.stringify(cards));
+  }, [cards]);
 
   function appendCard(question, answer, tag) {
     setCards((oldCards) => {
