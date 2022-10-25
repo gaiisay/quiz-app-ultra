@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header content="Quiz-App" />
+      <Header />
       <main>
         {page === "home" && <Cards cards={cards} deleteCard={deleteCard} toggleBookmark={toggleBookmark} />}
         {page === "bookmarks" && <Bookmarks cards={cards} toggleBookmark={toggleBookmark} />}

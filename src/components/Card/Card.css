@@ -1,9 +1,0 @@
-.card {
-  border: 1px solid var(--black);
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-}
-.card-list__item {
-  margin: 0 0 4rem;
-}
