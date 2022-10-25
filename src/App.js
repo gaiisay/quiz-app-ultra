@@ -8,7 +8,9 @@ import Profile from "./pages/Profile";
 import { cardList } from "./db";
 
 function App() {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState(() => {
+    return localStorage.getItem("currentPage") ?? "home";
+  });
   const [cards, setCards] = useState(() => {
     return JSON.parse(localStorage.getItem("yourCards")) ?? cardList;
   });
@@ -16,6 +18,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("yourCards", JSON.stringify(cards));
   }, [cards]);
+
+  useEffect(() => {
+    localStorage.setItem("currentPage", page);
+  }, [page]);
 
   function appendCard(question, answer, tag) {
     setCards((oldCards) => {
@@ -55,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header content="Quiz-App" />
+      <Header />
       <main>
         {page === "home" && <Cards cards={cards} deleteCard={deleteCard} toggleBookmark={toggleBookmark} />}
         {page === "bookmarks" && <Bookmarks cards={cards} toggleBookmark={toggleBookmark} />}
