@@ -49,10 +49,8 @@ function App() {
   function toggleBookmark(cardId) {
     setCards((oldCards) => {
       const newCards = oldCards.map((card) => {
-        if (card.id === cardId && card.isBookmarked === true) {
-          return { ...card, isBookmarked: false };
-        } else if (card.id === cardId && card.isBookmarked === false) {
-          return { ...card, isBookmarked: true };
+        if (card.id === cardId) {
+          return { ...card, isBookmarked: !card.isBookmarked };
         } else return card;
       });
       return newCards;
